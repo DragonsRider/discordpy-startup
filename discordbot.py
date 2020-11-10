@@ -12,13 +12,7 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-@tasks.loop(seconds=60)
-async def loop():
-    # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    if now == '10:23':
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send('おはよう')  
+  
 
 
 @bot.command()
